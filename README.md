@@ -18,4 +18,6 @@ pipenv install -d ipython
 ```
 
 ## Running
-`pipenv run "python shotty/shotty.py"`
+`pipenv run "python shotty/shotty.py <command> <--owner=OWNER>"`
+*command* is list, start or stop
+*owner* is optional
