@@ -1,17 +1,21 @@
 # snapshotspawner
 A demo project that uses Python for managing EC2 instances
 
-## Running
+## About
+This demo project uses Boto3 to manage AWS EC2 instance snapshots
 
-This project requires Python 3 and the requests package.
+##Configuring
+shotty uses the configuration file created by the AWS CLI e.g.
 
-First install pipenv. Then
 ```
 aws configure --profile shotty
+
 pwd
 pip3 install pipenv
 pipenv --three
 pipenv install boto3
 pipenv install -d ipython
-pipenv run "python meteors/find_meteors.py"
 ```
+
+## Running
+`pipenv run "python shotty/shotty.py"`
