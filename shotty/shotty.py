@@ -30,7 +30,9 @@ def snapshots():
 @snapshots.command('list')
 @click.option('--owner', default=None,
     help="Only snapshots for owner (tag Owner:<name>)")
-def list_snapshots(owner):
+@click.option('--all', 'list_all', default=False, is_flag=True,
+    help="List all snapshots for each volume, not just the most recent")
+def list_snapshots(owner, list_all):
     "List EC2 snapshots"
 
     instances = filter_instances(owner)
@@ -46,6 +48,8 @@ def list_snapshots(owner):
                     s.progress,
                     s.start_time.strftime('%c')
                 )))
+
+                if s.state == 'completed' and not list_all: break
 
 ###########Sub Group for volumes##########
 @cli.group('volumes')
